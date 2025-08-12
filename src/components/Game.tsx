@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandRock, faHandPaper, faHandScissors } from '@fortawesome/free-solid-svg-icons';
-import { GameChoice, GameResult, GameResultType } from '../types/game';
+import { GameChoice, GameResult, GameResultType } from '@/types/game';
 import { useState } from 'react';
 import GameResultComponent from './GameResult';
 
@@ -51,21 +51,22 @@ const Game: React.FC = () => {
 
   return (
     <div className="game">
-      <button onClick={() => handlePlayerChoice(GameChoice.ROCK)}>
-        <FontAwesomeIcon icon={faHandRock} />
-        Rock
-      </button>
-      <button onClick={() => handlePlayerChoice(GameChoice.PAPER)}>
-        <FontAwesomeIcon icon={faHandPaper} />
-        Paper
-      </button>
-      <button onClick={() => handlePlayerChoice(GameChoice.SCISSORS)}>
-        <FontAwesomeIcon icon={faHandScissors} />
-        Scissors
-      </button>
       <p>Welcome to your Rock Paper Scissors game!</p>
-      
       {gameResult && <GameResultComponent gameResult={gameResult} />}
+      <div className="game-buttons">
+        <button onClick={() => handlePlayerChoice(GameChoice.ROCK)}>
+          <FontAwesomeIcon icon={faHandRock} />
+          Rock
+        </button>
+        <button onClick={() => handlePlayerChoice(GameChoice.PAPER)}>
+          <FontAwesomeIcon icon={faHandPaper} />
+          Paper
+        </button>
+        <button onClick={() => handlePlayerChoice(GameChoice.SCISSORS)}>
+          <FontAwesomeIcon icon={faHandScissors} />
+          Scissors
+        </button>
+      </div>
     </div>
   );
 };

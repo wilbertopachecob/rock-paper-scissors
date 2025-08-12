@@ -26,6 +26,18 @@
   border-radius: 15px;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.game-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .game h2 {
@@ -51,6 +63,10 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.game button svg {
+  font-size: 1.5rem;
 }
 
 .hello-world button:hover {
@@ -91,6 +107,10 @@
 
 .choice svg {
   font-size: 2rem;
+}
+
+.choice.player-choice.scissors svg {
+  transform: scaleX(-1);
 }
 
 .result {

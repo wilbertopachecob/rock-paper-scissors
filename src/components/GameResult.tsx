@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandRock, faHandPaper, faHandScissors } from '@fortawesome/free-solid-svg-icons';
-import { GameChoice, GameResult } from '../types/game';
+import { GameChoice, GameResult } from '@/types/game';
 
 const GameResultComponent: React.FC<{ gameResult: GameResult }> = ({ gameResult }) => {
 
@@ -15,12 +15,12 @@ const GameResultComponent: React.FC<{ gameResult: GameResult }> = ({ gameResult 
     <div className="game-result">
           <h3>Game Result</h3>
           <div className="choices">
-            <div className="choice">
+            <div className={`choice player-choice ${gameResult.playerChoice.toLowerCase()}`}>
               <span>Your choice:</span>
               <FontAwesomeIcon icon={getChoiceIcon(gameResult.playerChoice)} />
               <span>{gameResult.playerChoice}</span>
             </div>
-            <div className="choice">
+            <div className={`choice ${gameResult.computerChoice.toLowerCase()}`}>
               <span>Computer choice:</span>
               <FontAwesomeIcon icon={getChoiceIcon(gameResult.computerChoice)} />
               <span>{gameResult.computerChoice}</span>
