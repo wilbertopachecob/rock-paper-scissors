@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@/utils/test-utils';
 import { testAccessibility } from '@/utils/test-utils';
 import Game from '../Game';
-import { GameChoice, GameResultType } from '@/types/game';
 
 describe('Game Component', () => {
   beforeEach(() => {

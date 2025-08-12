@@ -15,7 +15,7 @@ jest.mock('react-i18next', () => ({
 
 // Mock FontAwesome icons
 jest.mock('@fortawesome/react-fontawesome', () => ({
-  FontAwesomeIcon: ({ icon }: { icon: any }) => {
+  FontAwesomeIcon: ({ icon }: { icon: { iconName: string } }) => {
     return React.createElement('span', { 'data-testid': 'icon' }, icon.iconName);
   },
 }));

@@ -4,6 +4,7 @@ const typescriptParser = require('@typescript-eslint/parser');
 const react = require('eslint-plugin-react');
 const reactHooks = require('eslint-plugin-react-hooks');
 const jsxA11y = require('eslint-plugin-jsx-a11y');
+const jest = require('eslint-plugin-jest');
 
 module.exports = [
   js.configs.recommended,
@@ -36,7 +37,11 @@ module.exports = [
       globals: {
         React: 'readonly',
         document: 'readonly',
-        HTMLElement: 'readonly'
+        HTMLElement: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly'
       }
     },
     plugins: {
@@ -69,6 +74,31 @@ module.exports = [
       react: {
         version: 'detect'
       }
+    }
+  },
+  {
+    files: ['**/*.{test,spec}.{ts,tsx}', '**/__tests__/**/*.{ts,tsx}', '**/setupTests.ts', '**/test-utils.tsx'],
+    languageOptions: {
+      globals: {
+        jest: 'readonly',
+        describe: 'readonly',
+        it: 'readonly',
+        test: 'readonly',
+        expect: 'readonly',
+        beforeEach: 'readonly',
+        afterEach: 'readonly',
+        beforeAll: 'readonly',
+        afterAll: 'readonly'
+      }
+    },
+    plugins: {
+      jest: jest
+    },
+    rules: {
+      'jest/no-disabled-tests': 'warn',
+      'jest/no-focused-tests': 'error',
+      'jest/no-identical-title': 'error',
+      'jest/valid-expect': 'error'
     }
   }
 ];
