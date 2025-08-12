@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandRock, faHandPaper, faHandScissors } from '@fortawesome/free-solid-svg-icons';
-import { GameChoice, GameResult, GameResultType } from '../types/game';
+import { GameChoice, GameResult } from '../types/game';
 
 const GameResultComponent: React.FC<{ gameResult: GameResult }> = ({ gameResult }) => {
 

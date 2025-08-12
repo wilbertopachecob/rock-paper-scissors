@@ -48,14 +48,7 @@ const Game: React.FC = () => {
     });
   };
 
-  const getChoiceIcon = (choice: GameChoice) => {
-    switch (choice) {
-      case GameChoice.ROCK: return faHandRock;
-      case GameChoice.PAPER: return faHandPaper;
-      case GameChoice.SCISSORS: return faHandScissors;
-      default: return faHandRock;
-    }
-  };
+
   return (
     <div className="game">
       <button onClick={() => handlePlayerChoice(GameChoice.ROCK)}>

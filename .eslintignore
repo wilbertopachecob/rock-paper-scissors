@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+.parcel-cache/
+
+# Configuration files
+*.config.js
+*.config.ts
+
+# Generated files
+coverage/
+*.d.ts
+
+# Environment files
+.env*
+
+# IDE files
+.vscode/
+.idea/
