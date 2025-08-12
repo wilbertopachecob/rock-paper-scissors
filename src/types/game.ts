@@ -10,9 +10,9 @@ export enum GameResultType {
   DRAW = 'draw'
 }
 
-export interface GameResult {
+export type GameResult = {
   playerChoice: GameChoice;
   computerChoice: GameChoice;
   result: GameResultType;
   message: string;
-}
+};

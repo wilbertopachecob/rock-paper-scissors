@@ -4,10 +4,10 @@ import { GameChoice, GameResult } from '@/types/game';
 import { useTranslation } from 'react-i18next';
 import styles from '@/styles/GameResult.module.scss';
 
-interface GameResultComponentProps {
+type GameResultComponentProps = {
   gameResult: GameResult;
   isAnimating: boolean;
-}
+};
 
 const GameResultComponent: React.FC<GameResultComponentProps> = ({ gameResult, isAnimating }) => {
   const { t } = useTranslation();
