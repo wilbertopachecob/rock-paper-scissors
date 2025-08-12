@@ -7,9 +7,6 @@
  * You'll need to install sharp for PNG generation: npm install sharp
  */
 
-const fs = require('fs');
-const path = require('path');
-
 console.log('🎯 Rock Paper Scissors Favicon Generator');
 console.log('=====================================\n');
 
