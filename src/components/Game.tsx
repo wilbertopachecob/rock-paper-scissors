@@ -1,36 +1,36 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandRock, faHandPaper, faHandScissors } from '@fortawesome/free-solid-svg-icons';
-import { GameChoice, GameResult as GameResultType } from '../types/game';
+import { GameChoice, GameResult, GameResultType } from '../types/game';
 import { useState } from 'react';
-import GameResult from './GameResult';
+import GameResultComponent from './GameResult';
 
 const Game: React.FC = () => {
-  const [gameResult, setGameResult] = useState<GameResultType | null>(null);
+  const [gameResult, setGameResult] = useState<GameResult | null>(null);
 
   const getRandomChoice = (): GameChoice => {
     const choices = Object.values(GameChoice);
     return choices[Math.floor(Math.random() * choices.length)];
   };
 
-  const determineWinner = (player: GameChoice, computer: GameChoice): 'win' | 'lose' | 'draw' => {
-    if (player === computer) return 'draw';
+  const determineWinner = (player: GameChoice, computer: GameChoice): GameResultType => {
+    if (player === computer) return GameResultType.DRAW;
     
     if (
       (player === GameChoice.ROCK && computer === GameChoice.SCISSORS) ||
       (player === GameChoice.PAPER && computer === GameChoice.ROCK) ||
       (player === GameChoice.SCISSORS && computer === GameChoice.PAPER)
     ) {
-      return 'win';
+      return GameResultType.WIN;
     }
     
-    return 'lose';
+    return GameResultType.LOSE;
   };
 
-  const getResultMessage = (result: 'win' | 'lose' | 'draw'): string => {
+  const getResultMessage = (result: GameResultType): string => {
     switch (result) {
-      case 'win': return 'You win! 🎉';
-      case 'lose': return 'Computer wins! 😔';
-      case 'draw': return "It's a draw! 🤝";
+      case GameResultType.WIN: return 'You win! 🎉';
+      case GameResultType.LOSE: return 'Computer wins! 😔';
+      case GameResultType.DRAW: return "It's a draw! 🤝";
       default: return '';
     }
   };
@@ -72,7 +72,7 @@ const Game: React.FC = () => {
       </button>
       <p>Welcome to your Rock Paper Scissors game!</p>
       
-      {gameResult && <GameResult gameResult={gameResult} />}
+      {gameResult && <GameResultComponent gameResult={gameResult} />}
     </div>
   );
 };

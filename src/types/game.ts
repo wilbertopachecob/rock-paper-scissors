@@ -4,9 +4,15 @@ export enum GameChoice {
   SCISSORS = 'scissors'
 }
 
+export enum GameResultType {
+  WIN = 'win',
+  LOSE = 'lose',
+  DRAW = 'draw'
+}
+
 export interface GameResult {
   playerChoice: GameChoice;
   computerChoice: GameChoice;
-  result: 'win' | 'lose' | 'draw';
+  result: GameResultType;
   message: string;
 }

@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandRock, faHandPaper, faHandScissors } from '@fortawesome/free-solid-svg-icons';
-import { GameChoice, GameResult as GameResultType } from '../types/game';
+import { GameChoice, GameResult, GameResultType } from '../types/game';
 
-const GameResult: React.FC<{ gameResult: GameResultType }> = ({ gameResult }) => {
+const GameResultComponent: React.FC<{ gameResult: GameResult }> = ({ gameResult }) => {
 
     const getChoiceIcon = (choice: GameChoice) => {
         switch (choice) {
@@ -33,4 +33,4 @@ const GameResult: React.FC<{ gameResult: GameResultType }> = ({ gameResult }) =>
   )
 }
 
-export default GameResult
+export default GameResultComponent
