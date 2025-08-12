@@ -1,10 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandRock, faHandPaper, faHandScissors } from '@fortawesome/free-solid-svg-icons';
 import { GameChoice, GameResult, GameResultType } from '@/types/game';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import GameResultComponent from './GameResult';
 
 const Game: React.FC = () => {
+  const { t } = useTranslation();
   const [gameResult, setGameResult] = useState<GameResult>({
     playerChoice: GameChoice.ROCK,
     computerChoice: GameChoice.ROCK,
@@ -12,6 +14,16 @@ const Game: React.FC = () => {
     message: "It's a draw! 🤝"
   });
   const [isAnimating, setIsAnimating] = useState(false);
+
+  // Update message when language changes
+  useEffect(() => {
+    if (gameResult.result === GameResultType.DRAW) {
+      setGameResult(prev => ({
+        ...prev,
+        message: t('game.result.draw')
+      }));
+    }
+  }, [t, gameResult.result]);
 
   const getRandomChoice = (): GameChoice => {
     const choices = Object.values(GameChoice);
@@ -34,9 +46,9 @@ const Game: React.FC = () => {
 
   const getResultMessage = (result: GameResultType): string => {
     switch (result) {
-      case GameResultType.WIN: return 'You win! 🎉';
-      case GameResultType.LOSE: return 'Computer wins! 😔';
-      case GameResultType.DRAW: return "It's a draw! 🤝";
+      case GameResultType.WIN: return t('game.result.win');
+      case GameResultType.LOSE: return t('game.result.lose');
+      case GameResultType.DRAW: return t('game.result.draw');
       default: return '';
     }
   };
@@ -63,7 +75,7 @@ const Game: React.FC = () => {
 
   return (
     <div className="game">
-      <p>Welcome to your Rock Paper Scissors game!</p>
+      <p>{t('game.welcome')}</p>
       <GameResultComponent gameResult={gameResult} isAnimating={isAnimating} />
       <div className="game-buttons">
         <button 
@@ -72,7 +84,7 @@ const Game: React.FC = () => {
           className={isAnimating ? 'animating' : ''}
         >
           <FontAwesomeIcon icon={faHandRock} />
-          Rock
+          {t('game.buttons.rock')}
         </button>
         <button 
           onClick={() => handlePlayerChoice(GameChoice.PAPER)}
@@ -80,7 +92,7 @@ const Game: React.FC = () => {
           className={isAnimating ? 'animating' : ''}
         >
           <FontAwesomeIcon icon={faHandPaper} />
-          Paper
+          {t('game.buttons.paper')}
         </button>
         <button 
           onClick={() => handlePlayerChoice(GameChoice.SCISSORS)}
@@ -88,7 +100,7 @@ const Game: React.FC = () => {
           className={isAnimating ? 'animating' : ''}
         >
           <FontAwesomeIcon icon={faHandScissors} />
-          Scissors
+          {t('game.buttons.scissors')}
         </button>
       </div>
     </div>

@@ -1,0 +1,23 @@
+{
+  "game": {
+    "title": "Rock Paper Scissors Game",
+    "welcome": "Welcome to your Rock Paper Scissors game!",
+    "result": {
+      "title": "Game Result",
+      "yourChoice": "Your choice:",
+      "computerChoice": "Computer choice:",
+      "win": "You win! 🎉",
+      "lose": "Computer wins! 😔",
+      "draw": "It's a draw! 🤝"
+    },
+    "buttons": {
+      "rock": "Rock",
+      "paper": "Paper",
+      "scissors": "Scissors"
+    }
+  },
+  "language": {
+    "english": "English",
+    "spanish": "Spanish"
+  }
+}

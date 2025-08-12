@@ -1,0 +1,23 @@
+{
+  "game": {
+    "title": "Juego de Piedra, Papel o Tijeras",
+    "welcome": "¡Bienvenido a tu juego de Piedra, Papel o Tijeras!",
+    "result": {
+      "title": "Resultado del Juego",
+      "yourChoice": "Tu elección:",
+      "computerChoice": "Elección de la computadora:",
+      "win": "¡Ganaste! 🎉",
+      "lose": "¡Gana la computadora! 😔",
+      "draw": "¡Empate! 🤝"
+    },
+    "buttons": {
+      "rock": "Piedra",
+      "paper": "Papel",
+      "scissors": "Tijeras"
+    }
+  },
+  "language": {
+    "english": "English",
+    "spanish": "Español"
+  }
+}
