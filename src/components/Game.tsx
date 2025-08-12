@@ -16,16 +16,6 @@ const Game: React.FC = () => {
   });
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // Update message when language changes
-  useEffect(() => {
-    if (gameResult.result === GameResultType.DRAW) {
-      setGameResult(prev => ({
-        ...prev,
-        message: t('game.result.draw')
-      }));
-    }
-  }, [t, gameResult.result]);
-
   const getRandomChoice = (): GameChoice => {
     const choices = Object.values(GameChoice);
     return choices[Math.floor(Math.random() * choices.length)];
