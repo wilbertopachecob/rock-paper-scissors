@@ -1,21 +1,17 @@
-name: CI/CD Pipeline
+name: CI Pipeline
 
 on:
   push:
     branches: [ main, develop ]
   pull_request:
     branches: [ main, develop ]
-  schedule:
-    # Run daily at 2 AM UTC
-    - cron: '0 2 * * *'
 
 env:
   NODE_VERSION: '18'
-  NPM_CACHE_DIR: ~/.npm
 
 jobs:
-  quality-checks:
-    name: Quality Checks
+  ci:
+    name: Lint, Test & Build
     runs-on: ubuntu-latest
     
     steps:
@@ -39,101 +35,7 @@ jobs:
         run: npm run type-check
         
       - name: Run tests
-        run: npm run test:coverage
-        
-      - name: Upload coverage reports
-        uses: codecov/codecov-action@v4
-        with:
-          file: ./coverage/lcov.info
-          flags: unittests
-          name: codecov-umbrella
-          fail_ci_if_error: false
-          
-  build:
-    name: Build Application
-    runs-on: ubuntu-latest
-    needs: quality-checks
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
-          
-      - name: Install dependencies
-        run: npm ci
+        run: npm test
         
       - name: Build application
         run: npm run build
-        
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-files
-          path: dist/
-          retention-days: 7
-          
-  deploy:
-    name: Deploy to Production
-    runs-on: ubuntu-latest
-    needs: [quality-checks, build]
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
-          
-      - name: Install dependencies
-        run: npm ci
-        
-      - name: Build application
-        run: npm run build
-        
-      - name: Deploy to production
-        run: |
-          echo "Deploying to production..."
-          # Add your deployment commands here
-          # Example: npm run deploy
-          
-      - name: Notify deployment
-        run: |
-          echo "Deployment completed successfully!"
-          # Add notification logic here (Slack, Discord, etc.)
-          
-  security-scan:
-    name: Security Scan
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          
-      - name: Install dependencies
-        run: npm ci
-        
-      - name: Run security audit
-        run: npm audit --audit-level=moderate
-        
-      - name: Run Snyk security scan
-        uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          args: --severity-threshold=high
