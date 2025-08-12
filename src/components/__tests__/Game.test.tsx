@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@/utils/test-utils';
-import { testAccessibility } from '@/utils/test-utils';
 import Game from '../Game';
 
 describe('Game Component', () => {
@@ -135,8 +134,4 @@ describe('Game Component', () => {
     const newResult = screen.getByText(/It's a (win|lose|draw)/);
     expect(newResult).toBeInTheDocument();
   });
-
-  it.skip('should meet accessibility standards', async () => {
-    await testAccessibility(<Game />);
-  }, 10000);
 });
