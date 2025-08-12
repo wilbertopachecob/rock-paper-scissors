@@ -2,7 +2,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandRock, faHandPaper, faHandScissors } from '@fortawesome/free-solid-svg-icons';
 import { GameChoice, GameResult } from '@/types/game';
 
-const GameResultComponent: React.FC<{ gameResult: GameResult }> = ({ gameResult }) => {
+interface GameResultComponentProps {
+  gameResult: GameResult;
+  isAnimating: boolean;
+}
+
+const GameResultComponent: React.FC<GameResultComponentProps> = ({ gameResult, isAnimating }) => {
 
     const getChoiceIcon = (choice: GameChoice) => {
         switch (choice) {
@@ -12,7 +17,7 @@ const GameResultComponent: React.FC<{ gameResult: GameResult }> = ({ gameResult 
         }
       };
   return (
-    <div className="game-result">
+    <div className={`game-result ${isAnimating ? 'animating' : ''}`}>
           <h3>Game Result</h3>
           <div className="choices">
             <div className={`choice player-choice ${gameResult.playerChoice.toLowerCase()}`}>
@@ -20,7 +25,7 @@ const GameResultComponent: React.FC<{ gameResult: GameResult }> = ({ gameResult 
               <FontAwesomeIcon icon={getChoiceIcon(gameResult.playerChoice)} />
               <span>{gameResult.playerChoice}</span>
             </div>
-            <div className={`choice ${gameResult.computerChoice.toLowerCase()}`}>
+            <div className={`choice computer-choice ${gameResult.computerChoice.toLowerCase()}`}>
               <span>Computer choice:</span>
               <FontAwesomeIcon icon={getChoiceIcon(gameResult.computerChoice)} />
               <span>{gameResult.computerChoice}</span>

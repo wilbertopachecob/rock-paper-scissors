@@ -5,7 +5,13 @@ import { useState } from 'react';
 import GameResultComponent from './GameResult';
 
 const Game: React.FC = () => {
-  const [gameResult, setGameResult] = useState<GameResult | null>(null);
+  const [gameResult, setGameResult] = useState<GameResult>({
+    playerChoice: GameChoice.ROCK,
+    computerChoice: GameChoice.ROCK,
+    result: GameResultType.DRAW,
+    message: "It's a draw! 🤝"
+  });
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const getRandomChoice = (): GameChoice => {
     const choices = Object.values(GameChoice);
@@ -35,7 +41,12 @@ const Game: React.FC = () => {
     }
   };
 
-  const handlePlayerChoice = (choice: GameChoice) => {
+  const handlePlayerChoice = async (choice: GameChoice) => {
+    setIsAnimating(true);
+    
+    // Simulate animation delay
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
     const computerChoice = getRandomChoice();
     const result = determineWinner(choice, computerChoice);
     const message = getResultMessage(result);
@@ -46,23 +57,36 @@ const Game: React.FC = () => {
       result,
       message
     });
+    
+    setIsAnimating(false);
   };
-
 
   return (
     <div className="game">
       <p>Welcome to your Rock Paper Scissors game!</p>
-      {gameResult && <GameResultComponent gameResult={gameResult} />}
+      <GameResultComponent gameResult={gameResult} isAnimating={isAnimating} />
       <div className="game-buttons">
-        <button onClick={() => handlePlayerChoice(GameChoice.ROCK)}>
+        <button 
+          onClick={() => handlePlayerChoice(GameChoice.ROCK)}
+          disabled={isAnimating}
+          className={isAnimating ? 'animating' : ''}
+        >
           <FontAwesomeIcon icon={faHandRock} />
           Rock
         </button>
-        <button onClick={() => handlePlayerChoice(GameChoice.PAPER)}>
+        <button 
+          onClick={() => handlePlayerChoice(GameChoice.PAPER)}
+          disabled={isAnimating}
+          className={isAnimating ? 'animating' : ''}
+        >
           <FontAwesomeIcon icon={faHandPaper} />
           Paper
         </button>
-        <button onClick={() => handlePlayerChoice(GameChoice.SCISSORS)}>
+        <button 
+          onClick={() => handlePlayerChoice(GameChoice.SCISSORS)}
+          disabled={isAnimating}
+          className={isAnimating ? 'animating' : ''}
+        >
           <FontAwesomeIcon icon={faHandScissors} />
           Scissors
         </button>
