@@ -1,27 +1,29 @@
 .App {
   text-align: center;
-  min-height: 100vh;
+  height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
+  overflow: hidden;
 }
 
 .App-header {
-  padding: 3rem 2rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  height: 100vh;
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
+  gap: 1rem;
 }
 
 .App-header h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  margin-bottom: 1rem;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: 0.5rem;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -29,4 +31,5 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  flex-shrink: 0;
 }
