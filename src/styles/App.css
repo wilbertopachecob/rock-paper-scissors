@@ -1,0 +1,117 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.App-header {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.App-header h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.game {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.game h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.game p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.game button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hello-world button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.game-result {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.game-result h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.choices {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.choice span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.choice svg {
+  font-size: 2rem;
+}
+
+.result {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.result.win {
+  background: rgba(76, 175, 80, 0.3);
+  color: #4caf50;
+}
+
+.result.lose {
+  background: rgba(244, 67, 54, 0.3);
+  color: #f44336;
+}
+
+.result.draw {
+  background: rgba(255, 193, 7, 0.3);
+  color: #ffc107;
+}

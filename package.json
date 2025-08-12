@@ -1,0 +1,53 @@
+{
+  "name": "rock_paper_scissors",
+  "version": "1.0.0",
+  "description": "A React Rock-Paper-Scissors app/game ",
+  "license": "ISC",
+  "author": "wilbertopachecob@gmail.com",
+  "type": "commonjs",
+  "scripts": {
+    "start": "parcel public/index.html",
+    "dev": "parcel public/index.html --open",
+    "build": "parcel build public/index.html",
+    "type-check": "tsc --noEmit",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.0.0",
+    "@fortawesome/free-solid-svg-icons": "^7.0.0",
+    "@fortawesome/react-fontawesome": "^0.2.3",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-react": "^7.27.1",
+    "@parcel/transformer-typescript-tsc": "^2.15.4",
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.2.1",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@webpack-cli/serve": "^3.0.1",
+    "babel-jest": "^30.0.5",
+    "babel-loader": "^10.0.0",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "jest": "^30.0.5",
+    "jest-environment-jsdom": "^30.0.5",
+    "parcel": "^2.15.4",
+    "serve": "^14.2.4",
+    "style-loader": "^4.0.0",
+    "ts-jest": "^29.4.1",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.2",
+    "webpack": "^5.101.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-middleware": "^7.4.2",
+    "webpack-dev-server": "^5.2.2"
+  }
+}
