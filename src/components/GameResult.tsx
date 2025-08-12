@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandRock, faHandPaper, faHandScissors } from '@fortawesome/free-solid-svg-icons';
 import { GameChoice, GameResult } from '@/types/game';
 import { useTranslation } from 'react-i18next';
+import styles from '@/styles/GameResult.module.scss';
 
 interface GameResultComponentProps {
   gameResult: GameResult;
@@ -20,21 +21,21 @@ const GameResultComponent: React.FC<GameResultComponentProps> = ({ gameResult, i
   };
 
   return (
-    <div className={`game-result ${isAnimating ? 'animating' : ''}`}>
+    <div className={`${styles['game-result']} ${isAnimating ? styles.animating : ''}`}>
       <h3>{t('game.result.title')}</h3>
-      <div className="choices">
-        <div className={`choice player-choice ${gameResult.playerChoice.toLowerCase()}`}>
+      <div className={styles.choices}>
+        <div className={`${styles.choice} ${styles['player-choice']} ${styles[gameResult.playerChoice.toLowerCase()]}`}>
           <span>{t('game.result.yourChoice')}</span>
           <FontAwesomeIcon icon={getChoiceIcon(gameResult.playerChoice)} />
           <span>{gameResult.playerChoice}</span>
         </div>
-        <div className={`choice computer-choice ${gameResult.computerChoice.toLowerCase()}`}>
+        <div className={`${styles.choice} ${styles['computer-choice']} ${styles[gameResult.computerChoice.toLowerCase()]}`}>
           <span>{t('game.result.computerChoice')}</span>
           <FontAwesomeIcon icon={getChoiceIcon(gameResult.computerChoice)} />
           <span>{gameResult.computerChoice}</span>
         </div>
       </div>
-      <div className={`result ${gameResult.result}`}>
+      <div className={`${styles.result} ${styles[gameResult.result]}`}>
         {gameResult.message}
       </div>
     </div>

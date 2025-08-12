@@ -1,0 +1,102 @@
+.game-result {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.game-result h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.game-result.animating {
+  animation: shake 0.5s ease-in-out infinite;
+}
+
+.game-result.animating .choices {
+  animation: bounce 0.8s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.choices {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.choice span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.choice svg {
+  font-size: 2rem;
+}
+
+.choice.player-choice svg {
+  transform: rotate(90deg);
+}
+
+.choice.computer-choice svg {
+  transform: scaleX(-1) rotate(90deg);
+}
+
+.choice.player-choice.scissors svg {
+  transform: rotate(0deg);
+}
+
+.choice.computer-choice.scissors svg {
+  transform: scaleX(-1);
+}
+
+.result {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.result.win {
+  background: rgba(76, 175, 80, 0.3);
+  color: #4caf50;
+}
+
+.result.lose {
+  background: rgba(244, 67, 54, 0.3);
+  color: #f44336;
+}
+
+.result.draw {
+  background: rgba(255, 193, 7, 0.3);
+  color: #ffc107;
+}

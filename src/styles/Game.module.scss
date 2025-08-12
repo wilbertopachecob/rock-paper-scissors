@@ -1,0 +1,71 @@
+.game {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.game h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.game p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.game-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.game button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.game button svg {
+  font-size: 1.5rem;
+}
+
+.game button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.game button.animating {
+  animation: pulse 0.5s ease-in-out infinite alternate;
+}
+
+.game button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}

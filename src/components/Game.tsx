@@ -4,6 +4,7 @@ import { GameChoice, GameResult, GameResultType } from '@/types/game';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import GameResultComponent from './GameResult';
+import styles from '@/styles/Game.module.scss';
 
 const Game: React.FC = () => {
   const { t } = useTranslation();
@@ -74,14 +75,14 @@ const Game: React.FC = () => {
   };
 
   return (
-    <div className="game">
+    <div className={styles.game}>
       <p>{t('game.welcome')}</p>
       <GameResultComponent gameResult={gameResult} isAnimating={isAnimating} />
-      <div className="game-buttons">
+      <div className={styles['game-buttons']}>
         <button 
           onClick={() => handlePlayerChoice(GameChoice.ROCK)}
           disabled={isAnimating}
-          className={isAnimating ? 'animating' : ''}
+          className={isAnimating ? styles.animating : ''}
         >
           <FontAwesomeIcon icon={faHandRock} />
           {t('game.buttons.rock')}
@@ -89,7 +90,7 @@ const Game: React.FC = () => {
         <button 
           onClick={() => handlePlayerChoice(GameChoice.PAPER)}
           disabled={isAnimating}
-          className={isAnimating ? 'animating' : ''}
+          className={isAnimating ? styles.animating : ''}
         >
           <FontAwesomeIcon icon={faHandPaper} />
           {t('game.buttons.paper')}
@@ -97,7 +98,7 @@ const Game: React.FC = () => {
         <button 
           onClick={() => handlePlayerChoice(GameChoice.SCISSORS)}
           disabled={isAnimating}
-          className={isAnimating ? 'animating' : ''}
+          className={isAnimating ? styles.animating : ''}
         >
           <FontAwesomeIcon icon={faHandScissors} />
           {t('game.buttons.scissors')}
