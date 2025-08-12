@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandRock, faHandPaper, faHandScissors } from '@fortawesome/free-solid-svg-icons';
 import { GameChoice, GameResult, GameResultType } from '@/types/game';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import GameResultComponent from './GameResult';
 import styles from '@/styles/Game.module.scss';
@@ -15,16 +15,6 @@ const Game: React.FC = () => {
     message: "It's a draw! 🤝"
   });
   const [isAnimating, setIsAnimating] = useState(false);
-
-  // Update message when language changes
-  useEffect(() => {
-    if (gameResult.result === GameResultType.DRAW) {
-      setGameResult(prev => ({
-        ...prev,
-        message: t('game.result.draw')
-      }));
-    }
-  }, [t, gameResult.result]);
 
   const getRandomChoice = (): GameChoice => {
     const choices = Object.values(GameChoice);
