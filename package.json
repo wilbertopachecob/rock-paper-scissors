@@ -28,7 +28,7 @@
     "react-i18next": "^15.6.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.0",
+    "@babel/core": "^7.28.5",
     "@babel/preset-env": "^7.28.0",
     "@babel/preset-react": "^7.27.1",
     "@parcel/packager-raw-url": "^2.15.4",
