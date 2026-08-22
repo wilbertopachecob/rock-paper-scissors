@@ -1,6 +1,8 @@
 .App {
   min-height: 100vh;
   background-color: var(--color-cream);
+  background-image: var(--pattern-dot-image);
+  background-size: var(--pattern-dot-size);
   color: var(--color-ink);
 }
 
