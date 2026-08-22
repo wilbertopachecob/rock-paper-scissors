@@ -4,7 +4,7 @@ const typescriptParser = require('@typescript-eslint/parser');
 const react = require('eslint-plugin-react');
 const reactHooks = require('eslint-plugin-react-hooks');
 const jsxA11y = require('eslint-plugin-jsx-a11y');
-const jest = require('eslint-plugin-jest');
+const vitest = require('@vitest/eslint-plugin');
 
 module.exports = [
   js.configs.recommended,
@@ -18,6 +18,7 @@ module.exports = [
       '*.config.ts',
       'coverage/',
       '*.d.ts',
+      'src/**/*.d.ts',
       '.env*',
       '.vscode/',
       '.idea/'
@@ -80,7 +81,7 @@ module.exports = [
     files: ['**/*.{test,spec}.{ts,tsx}', '**/__tests__/**/*.{ts,tsx}', '**/setupTests.ts', '**/test-utils.tsx'],
     languageOptions: {
       globals: {
-        jest: 'readonly',
+        vi: 'readonly',
         describe: 'readonly',
         it: 'readonly',
         test: 'readonly',
@@ -92,13 +93,13 @@ module.exports = [
       }
     },
     plugins: {
-      jest: jest
+      vitest,
     },
     rules: {
-      'jest/no-disabled-tests': 'warn',
-      'jest/no-focused-tests': 'error',
-      'jest/no-identical-title': 'error',
-      'jest/valid-expect': 'error'
+      'vitest/no-disabled-tests': 'warn',
+      'vitest/no-focused-tests': 'error',
+      'vitest/no-identical-title': 'error',
+      'vitest/valid-expect': 'error'
     }
   }
 ];

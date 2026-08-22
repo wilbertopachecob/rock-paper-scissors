@@ -1,11 +1,14 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { render, screen, fireEvent } from '@/utils/test-utils';
 import { testAccessibility } from '@/utils/test-utils';
 import LanguageSwitcher from '../LanguageSwitcher';
 
-// Mock react-i18next
-const mockChangeLanguage = jest.fn();
-jest.mock('react-i18next', () => ({
+const { mockChangeLanguage } = vi.hoisted(() => ({
+  mockChangeLanguage: vi.fn(),
+}));
+
+vi.mock('react-i18next', () => ({
   useTranslation: () => ({
     i18n: {
       language: 'en',
