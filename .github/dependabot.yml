@@ -20,6 +20,12 @@ updates:
     labels:
       - "dependencies"
       - "automated"
+    groups:
+      babel:
+        patterns:
+          - "@babel/*"
+          - "babel-jest"
+          - "babel-loader"
     ignore:
       # Ignore major version updates for React (can be breaking)
       - dependency-name: "react"
