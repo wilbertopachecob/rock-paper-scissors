@@ -10,9 +10,12 @@ export enum GameResultType {
   DRAW = 'draw'
 }
 
+export type GamePhase = 'idle' | 'thinking' | 'result';
+
 export type GameResult = {
   playerChoice: GameChoice;
   computerChoice: GameChoice;
   result: GameResultType;
   message: string;
+  explanation: string;
 };

@@ -9,7 +9,9 @@ const App: React.FC = () => {
   return (
     <div className={styles.App}>
       <header className={styles['App-header']}>
-        <LanguageSwitcher />
+        <div className={styles['top-bar']}>
+          <LanguageSwitcher />
+        </div>
         <h1>{t('game.title')}</h1>
         <Game />
       </header>

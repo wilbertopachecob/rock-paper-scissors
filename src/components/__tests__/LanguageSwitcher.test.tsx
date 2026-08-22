@@ -10,6 +10,7 @@ const { mockChangeLanguage } = vi.hoisted(() => ({
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
+    t: (key: string) => key,
     i18n: {
       language: 'en',
       changeLanguage: mockChangeLanguage,
@@ -24,51 +25,45 @@ describe('LanguageSwitcher Component', () => {
 
   it('should render without crashing', () => {
     render(<LanguageSwitcher />);
-    expect(screen.getByText('🇺🇸 English')).toBeInTheDocument();
-    expect(screen.getByText('🇪🇸 Español')).toBeInTheDocument();
+    expect(screen.getByText('EN')).toBeInTheDocument();
+    expect(screen.getByText('ES')).toBeInTheDocument();
   });
 
-  it('should have English button with correct text and flag', () => {
+  it('should mark the active language as pressed', () => {
     render(<LanguageSwitcher />);
-    const englishButton = screen.getByText('🇺🇸 English');
-    expect(englishButton).toBeInTheDocument();
-    expect(englishButton).toHaveTextContent('🇺🇸 English');
+    expect(screen.getByText('EN')).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByText('ES')).toHaveAttribute('aria-pressed', 'false');
   });
 
-  it('should have Spanish button with correct text and flag', () => {
+  it('should label each button with its full language name', () => {
     render(<LanguageSwitcher />);
-    const spanishButton = screen.getByText('🇪🇸 Español');
-    expect(spanishButton).toBeInTheDocument();
-    expect(spanishButton).toHaveTextContent('🇪🇸 Español');
+    expect(screen.getByLabelText('language.english')).toBeInTheDocument();
+    expect(screen.getByLabelText('language.spanish')).toBeInTheDocument();
   });
 
-  it('should call changeLanguage with "en" when English button is clicked', () => {
+  it('should call changeLanguage with "en" when the English button is clicked', () => {
     render(<LanguageSwitcher />);
-    const englishButton = screen.getByText('🇺🇸 English');
-    
-    fireEvent.click(englishButton);
-    
+
+    fireEvent.click(screen.getByText('EN'));
+
     expect(mockChangeLanguage).toHaveBeenCalledWith('en');
     expect(mockChangeLanguage).toHaveBeenCalledTimes(1);
   });
 
-  it('should call changeLanguage with "es" when Spanish button is clicked', () => {
+  it('should call changeLanguage with "es" when the Spanish button is clicked', () => {
     render(<LanguageSwitcher />);
-    const spanishButton = screen.getByText('🇪🇸 Español');
-    
-    fireEvent.click(spanishButton);
-    
+
+    fireEvent.click(screen.getByText('ES'));
+
     expect(mockChangeLanguage).toHaveBeenCalledWith('es');
     expect(mockChangeLanguage).toHaveBeenCalledTimes(1);
   });
 
   it('should have clickable buttons', () => {
     render(<LanguageSwitcher />);
-    const englishButton = screen.getByText('🇺🇸 English');
-    const spanishButton = screen.getByText('🇪🇸 Español');
-    
-    expect(englishButton).toBeEnabled();
-    expect(spanishButton).toBeEnabled();
+
+    expect(screen.getByText('EN')).toBeEnabled();
+    expect(screen.getByText('ES')).toBeEnabled();
   });
 
   it('should meet accessibility standards', async () => {

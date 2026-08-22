@@ -19,9 +19,9 @@ const determineWinner = (player: GameChoice, computer: GameChoice): GameResultTy
 
 const getResultMessage = (result: GameResultType): string => {
   switch (result) {
-    case GameResultType.WIN: return 'You win! 🎉';
-    case GameResultType.LOSE: return 'Computer wins! 😔';
-    case GameResultType.DRAW: return "It's a draw! 🤝";
+    case GameResultType.WIN: return 'You win!';
+    case GameResultType.LOSE: return 'Computer wins!';
+    case GameResultType.DRAW: return "It's a draw!";
     default: return '';
   }
 };
@@ -72,15 +72,15 @@ describe('Game Logic', () => {
 
   describe('getResultMessage function', () => {
     it('should return correct message for WIN', () => {
-      expect(getResultMessage(GameResultType.WIN)).toBe('You win! 🎉');
+      expect(getResultMessage(GameResultType.WIN)).toBe('You win!');
     });
 
     it('should return correct message for LOSE', () => {
-      expect(getResultMessage(GameResultType.LOSE)).toBe('Computer wins! 😔');
+      expect(getResultMessage(GameResultType.LOSE)).toBe('Computer wins!');
     });
 
     it('should return correct message for DRAW', () => {
-      expect(getResultMessage(GameResultType.DRAW)).toBe("It's a draw! 🤝");
+      expect(getResultMessage(GameResultType.DRAW)).toBe("It's a draw!");
     });
 
     it('should return empty string for unknown result type', () => {

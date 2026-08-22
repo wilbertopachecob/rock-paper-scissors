@@ -1,14 +1,21 @@
 {
   "game": {
     "title": "Rock Paper Scissors Game",
-    "welcome": "Welcome to your Rock Paper Scissors game!",
+    "welcome": "Pick your move and see what the computer throws.",
     "result": {
-      "title": "Game Result",
-      "yourChoice": "Your choice:",
-      "computerChoice": "Computer choice:",
-      "win": "You win! 🎉",
-      "lose": "Computer wins! 😔",
-      "draw": "It's a draw! 🤝"
+      "title": "Round Result",
+      "you": "You",
+      "computer": "Computer",
+      "idle": "Make your move to start",
+      "thinking": "Computer is choosing…",
+      "win": "You win!",
+      "lose": "Computer wins!",
+      "draw": "It's a draw!",
+      "explain": {
+        "rockScissors": "Rock crushes Scissors",
+        "paperRock": "Paper covers Rock",
+        "scissorsPaper": "Scissors cut Paper"
+      }
     },
     "buttons": {
       "rock": "Rock",

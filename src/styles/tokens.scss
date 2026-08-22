@@ -1,0 +1,97 @@
+// Design tokens for the neobrutalist Rock Paper Scissors UI.
+// Every color, type size, spacing, radius, border and shadow value used across
+// the app's SCSS modules is defined here as a CSS custom property so the
+// visual language stays in one place. See DESIGN.md for the rationale.
+
+:root {
+  // Ink & surfaces
+  --color-ink: oklch(19% 0.02 265);
+  --color-ink-soft: oklch(38% 0.02 265);
+  --color-cream: oklch(96% 0.014 85);
+  --color-surface: oklch(99% 0.004 90);
+  --color-neutral-box: oklch(94% 0.01 85);
+
+  // Choice colors — same chroma/lightness family, hue varies
+  --color-rock: oklch(74% 0.14 255);
+  --color-paper: oklch(80% 0.15 350);
+  --color-scissors: oklch(88% 0.14 95);
+
+  // Outcome colors — deeper shades so white text stays legible
+  --color-win: oklch(48% 0.15 145);
+  --color-lose: oklch(50% 0.19 25);
+  --color-draw: oklch(46% 0.15 70);
+
+  // Typography
+  --font-display: 'Archivo Black', 'Arial Black', sans-serif;
+  --font-body: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.85rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.05rem;
+  --font-size-lg: 1.15rem;
+  --font-size-xl: 1.4rem;
+  --font-size-display: clamp(1.75rem, 4.2vw, 2.6rem);
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.05;
+  --line-height-base: 1.5;
+  --letter-spacing-none: 0;
+  --letter-spacing-label: 0.06em;
+  --letter-spacing-eyebrow: 0.12em;
+
+  // Spacing scale
+  --space-hairline: 2px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+
+  // Radius scale
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  // Border widths
+  --border-width-sm: 3px;
+  --border-width-md: 4px;
+
+  // Layout dimensions
+  --layout-page-max-width: 1200px;
+  --layout-top-bar-max-width: 760px;
+  --layout-game-max-width: 640px;
+  --layout-result-max-width: 600px;
+  --control-choice-button-min-width: 132px;
+  --control-choice-button-min-height: 100px;
+  --choice-box-flex-basis: 130px;
+  --choice-box-max-width: 170px;
+  --choice-box-min-height: 148px;
+  --size-vs-badge: 40px;
+
+  // Hard offset shadows (no blur, no gradients — the neobrutalist signature)
+  --shadow-sm: 4px 4px 0 var(--color-ink);
+  --shadow-md: 6px 6px 0 var(--color-ink);
+  --shadow-lg: 8px 8px 0 var(--color-ink);
+  --shadow-button-hover: 8px 8px 0 var(--color-ink);
+  --shadow-language-hover: 5px 5px 0 var(--color-ink);
+  --shadow-none: 0 0 0 var(--color-ink);
+
+  // Motion
+  --offset-hover-sm: -1px;
+  --offset-hover-md: -2px;
+  --offset-press-sm: 3px;
+  --offset-press-md: 4px;
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-spin: 900ms;
+  --ease-standard: ease;
+}

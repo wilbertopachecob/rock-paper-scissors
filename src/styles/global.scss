@@ -1,0 +1,55 @@
+@use './tokens.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background-color: var(--color-cream);
+  background-image: radial-gradient(rgb(0 0 0 / 8%) 1.4px, transparent 1.4px);
+  background-size: 22px 22px;
+  line-height: var(--line-height-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--color-ink);
+}
+
+a:hover {
+  color: var(--color-lose);
+}
+
+button {
+  font-family: inherit;
+}
+
+button:focus-visible {
+  outline: var(--border-width-sm) solid var(--color-ink);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-scissors);
+  color: var(--color-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

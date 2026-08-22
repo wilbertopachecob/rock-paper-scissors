@@ -21,9 +21,8 @@ console.log('3. Or use ImageMagick: convert favicon.svg -resize 32x32 favicon.ic
 console.log('4. For PNG versions, use: https://realfavicongenerator.net/\n');
 
 console.log('🎨 Your favicon features:');
-console.log('   • Gradient background matching your app theme (#667eea to #764ba2)');
-console.log('   • Rock (mountain shape), Paper (folded corner), Scissors (X shape)');
-console.log('   • White elements with subtle transparency');
-console.log('   • Modern, clean design aesthetic\n');
+console.log('   • Neobrutalist style: flat cream background, thick dark border');
+console.log('   • Three color swatches (rock/paper/scissors accent colors)');
+console.log('   • No gradients or transparency, matching src/styles/tokens.scss');
 
 console.log('🚀 Your favicon is ready to use!');
