@@ -38,15 +38,19 @@ deliberately darker so white banner text stays legible (WCAG AA).
 - A `--font-size-*` scale from `xs` (0.75rem) to `display` (a `clamp()` for the
   responsive title) covers every text size in the app; no component writes a
   raw `rem`/`px` font size.
+- `--letter-spacing-*` tokens cover normal, label, and eyebrow text tracking.
 
 Both faces are loaded via Google Fonts in [`public/index.html`](public/index.html).
 
 ## Spacing, radius, borders, shadows
 
-- `--space-1` … `--space-8` (4px–32px) — all padding/gap values.
+- `--space-hairline` plus `--space-1` … `--space-8` (2px–32px) — all
+  padding/gap values.
 - `--radius-sm` … `--radius-xl`, plus `--radius-pill` for circular badges.
 - `--border-width-sm` (3px) / `--border-width-md` (4px) — the two border
   weights used throughout.
+- `--layout-*`, `--control-*`, `--choice-*`, and `--size-*` tokens define fixed
+  panel widths, button dimensions, choice-card dimensions, and badge sizes.
 - `--shadow-sm/md/lg`: hard, non-blurred offset shadows (`Npx Npx 0 var(--color-ink)`),
   the signature neobrutalist shadow. `--shadow-none` is used for the
   "pressed in" active state, where the shadow visually collapses as the
@@ -56,6 +60,7 @@ Both faces are loaded via Google Fonts in [`public/index.html`](public/index.htm
 
 - `--duration-fast` (150ms) for hover/active button transitions.
 - `--duration-spin` (900ms) for the "computer is thinking" spinner.
+- `--offset-hover-*` and `--offset-press-*` keep lift/press translations tokenized.
 - Every animation is disabled under `@media (prefers-reduced-motion: reduce)`,
   applied globally in `global.scss`.
 

@@ -39,8 +39,12 @@
 
   --line-height-tight: 1.05;
   --line-height-base: 1.5;
+  --letter-spacing-none: 0;
+  --letter-spacing-label: 0.06em;
+  --letter-spacing-eyebrow: 0.12em;
 
   // Spacing scale
+  --space-hairline: 2px;
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -61,13 +65,31 @@
   --border-width-sm: 3px;
   --border-width-md: 4px;
 
+  // Layout dimensions
+  --layout-page-max-width: 1200px;
+  --layout-top-bar-max-width: 760px;
+  --layout-game-max-width: 640px;
+  --layout-result-max-width: 600px;
+  --control-choice-button-min-width: 132px;
+  --control-choice-button-min-height: 100px;
+  --choice-box-flex-basis: 130px;
+  --choice-box-max-width: 170px;
+  --choice-box-min-height: 148px;
+  --size-vs-badge: 40px;
+
   // Hard offset shadows (no blur, no gradients — the neobrutalist signature)
   --shadow-sm: 4px 4px 0 var(--color-ink);
   --shadow-md: 6px 6px 0 var(--color-ink);
   --shadow-lg: 8px 8px 0 var(--color-ink);
+  --shadow-button-hover: 8px 8px 0 var(--color-ink);
+  --shadow-language-hover: 5px 5px 0 var(--color-ink);
   --shadow-none: 0 0 0 var(--color-ink);
 
   // Motion
+  --offset-hover-sm: -1px;
+  --offset-hover-md: -2px;
+  --offset-press-sm: 3px;
+  --offset-press-md: 4px;
   --duration-fast: 150ms;
   --duration-base: 250ms;
   --duration-spin: 900ms;

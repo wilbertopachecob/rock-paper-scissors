@@ -20,12 +20,12 @@
 }
 
 .lang-btn:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0 var(--color-ink);
+  transform: translate(var(--offset-hover-sm), var(--offset-hover-sm));
+  box-shadow: var(--shadow-language-hover);
 }
 
 .lang-btn:active {
-  transform: translate(3px, 3px);
+  transform: translate(var(--offset-press-sm), var(--offset-press-sm));
   box-shadow: var(--shadow-none);
 }
 

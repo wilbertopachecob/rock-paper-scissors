@@ -9,7 +9,7 @@
   align-items: center;
   gap: var(--space-6);
   width: 100%;
-  max-width: 640px;
+  max-width: var(--layout-game-max-width);
 }
 
 .game p {
@@ -39,8 +39,8 @@
   justify-content: center;
   gap: var(--space-2);
   padding: var(--space-5);
-  min-width: 132px;
-  min-height: 100px;
+  min-width: var(--control-choice-button-min-width);
+  min-height: var(--control-choice-button-min-height);
   border-radius: var(--radius-lg);
   border: var(--border-width-md) solid var(--color-ink);
   color: var(--color-ink);
@@ -65,12 +65,12 @@
 }
 
 .game button:hover:not(:disabled) {
-  transform: translate(-2px, -2px);
-  box-shadow: 8px 8px 0 var(--color-ink);
+  transform: translate(var(--offset-hover-md), var(--offset-hover-md));
+  box-shadow: var(--shadow-button-hover);
 }
 
 .game button:active:not(:disabled) {
-  transform: translate(4px, 4px);
+  transform: translate(var(--offset-press-md), var(--offset-press-md));
   box-shadow: var(--shadow-none);
 }
 

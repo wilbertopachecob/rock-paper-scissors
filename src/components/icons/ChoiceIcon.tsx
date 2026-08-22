@@ -1,4 +1,6 @@
 import { GameChoice } from '@/types/game';
+import { cx } from '@/utils/classNames';
+import styles from '@/styles/ChoiceIcon.module.scss';
 
 type ChoiceIconProps = {
   choice: GameChoice;
@@ -20,8 +22,7 @@ const ChoiceIcon: React.FC<ChoiceIconProps> = ({ choice, size = 32, mirrored = f
     fill: 'currentColor',
     'aria-hidden': true,
     focusable: false,
-    className,
-    style: mirrored ? { transform: 'scaleX(-1)' } : undefined,
+    className: cx(className, mirrored && styles.mirrored),
   };
 
   switch (choice) {
