@@ -77,6 +77,10 @@
   --choice-box-min-height: 148px;
   --size-vs-badge: 40px;
 
+  // Background pattern — the dot grid behind the page content
+  --pattern-dot-image: radial-gradient(rgb(0 0 0 / 8%) 1.4px, transparent 1.4px);
+  --pattern-dot-size: 22px 22px;
+
   // Hard offset shadows (no blur, no gradients — the neobrutalist signature)
   --shadow-sm: 4px 4px 0 var(--color-ink);
   --shadow-md: 6px 6px 0 var(--color-ink);

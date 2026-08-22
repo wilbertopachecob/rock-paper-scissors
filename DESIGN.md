@@ -64,6 +64,13 @@ Both faces are loaded via Google Fonts in [`public/index.html`](public/index.htm
 - Every animation is disabled under `@media (prefers-reduced-motion: reduce)`,
   applied globally in `global.scss`.
 
+## Background pattern
+
+`--pattern-dot-image` / `--pattern-dot-size` draw the subtle dot grid behind
+the page content. It's applied on `.App` (the actual visible page surface) in
+`App.module.scss`, not just on `body` — `.App` is a full-height, opaque
+element, so a pattern set only on `body` would be invisible underneath it.
+
 ## Icons
 
 Rock/Paper/Scissors are hand-drawn inline SVGs in

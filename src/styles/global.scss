@@ -15,8 +15,8 @@ body {
   font-family: var(--font-body);
   color: var(--color-ink);
   background-color: var(--color-cream);
-  background-image: radial-gradient(rgb(0 0 0 / 8%) 1.4px, transparent 1.4px);
-  background-size: 22px 22px;
+  background-image: var(--pattern-dot-image);
+  background-size: var(--pattern-dot-size);
   line-height: var(--line-height-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
