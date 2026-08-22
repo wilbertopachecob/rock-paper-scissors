@@ -29,6 +29,12 @@ updates:
         patterns:
           - "parcel"
           - "@parcel/*"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
     ignore:
       # Ignore major version updates for React (can be breaking)
       - dependency-name: "react"
