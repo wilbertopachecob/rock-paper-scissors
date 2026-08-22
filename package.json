@@ -49,7 +49,7 @@
     "@webpack-cli/serve": "^3.0.1",
     "axe-core": "^4.10.3",
     "babel-loader": "^10.1.1",
-    "css-loader": "^7.1.2",
+    "css-loader": "^7.1.4",
     "eslint": "^9.38.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
