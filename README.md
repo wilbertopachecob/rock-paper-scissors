@@ -6,10 +6,10 @@ A modern, interactive Rock Paper Scissors game built with React 19, TypeScript, 
 
 - **🎯 Interactive Gameplay**: Click to play Rock, Paper, or Scissors against the computer
 - **🌍 Internationalization**: Full English and Spanish language support with language switcher
-- **🎨 Beautiful UI**: Modern gradient design with smooth animations and hover effects
-- **🎭 Hand Gesture Animations**: Realistic animations simulating real-world gameplay
+- **🎨 Neobrutalist UI**: Bold flat colors, thick borders and hard shadows built on a token-based design system (see [DESIGN.md](DESIGN.md))
+- **♿ Accessible by default**: real focus states, `aria-live` result announcements, no color-only signaling, `prefers-reduced-motion` support, tested with `jest-axe`
+- **✂️ Custom Hand Icons**: Hand-drawn SVG rock/paper/scissors icons, mirrored so player and computer face each other
 - **🔧 TypeScript**: Full type safety with enums and interfaces
-- **🎭 FontAwesome Icons**: Visual representation of game choices with proper orientation
 - **📱 Responsive Design**: Works perfectly on desktop and mobile devices
 - **⚡ Hot Reloading**: Instant updates during development
 - **🏗️ Modular Architecture**: SCSS modules for component isolation
@@ -23,10 +23,10 @@ Play the game online: [Coming Soon - GitHub Pages]
 
 - **Frontend**: React 19 with TypeScript
 - **Build Tool**: Parcel bundler
-- **Styling**: SCSS modules with modern CSS features
+- **Styling**: SCSS modules on top of a CSS custom property design token system (see [DESIGN.md](DESIGN.md))
 - **Internationalization**: react-i18next with language detection
-- **Icons**: FontAwesome 6
-- **Testing**: Jest with React Testing Library
+- **Icons**: hand-drawn inline SVGs (`src/components/icons`), no icon library
+- **Testing**: Vitest with React Testing Library and jest-axe
 - **Package Manager**: npm
 
 ## 📦 Installation
@@ -75,20 +75,23 @@ Click the language switcher in the top-right corner to change languages instantl
 rock-paper-scissors/
 ├── src/
 │   ├── components/
-│   │   ├── Game.tsx              # Main game component
-│   │   ├── GameResult.tsx        # Game result display
-│   │   └── LanguageSwitcher.tsx  # Language selection
+│   │   ├── Game.tsx              # Main game component (state machine + rules)
+│   │   ├── GameResult.tsx        # Presentational result panel
+│   │   ├── LanguageSwitcher.tsx  # Language selection
+│   │   └── icons/
+│   │       └── ChoiceIcon.tsx    # Hand-drawn rock/paper/scissors SVGs
 │   ├── i18n/
 │   │   ├── index.ts              # Internationalization config
 │   │   └── locales/
 │   │       ├── en.json           # English translations
 │   │       └── es.json           # Spanish translations
 │   ├── styles/
+│   │   ├── tokens.scss           # Design tokens (colors, type, spacing, shadows)
+│   │   ├── global.scss           # Global resets built on the tokens
 │   │   ├── App.module.scss       # App component styles
 │   │   ├── Game.module.scss      # Game component styles
 │   │   ├── GameResult.module.scss # GameResult styles
-│   │   ├── LanguageSwitcher.module.scss # LanguageSwitcher styles
-│   │   └── App.css               # Global styles (minimal)
+│   │   └── LanguageSwitcher.module.scss # LanguageSwitcher styles
 │   ├── types/
 │   │   ├── game.ts               # Game types and enums
 │   │   └── scss.d.ts             # SCSS module declarations
@@ -98,32 +101,32 @@ rock-paper-scissors/
 │   └── index.html                # HTML template
 ├── package.json                   # Dependencies and scripts
 ├── tsconfig.json                  # TypeScript configuration
-├── webpack.config.js              # Webpack configuration
+├── DESIGN.md                      # Design token reference
+├── AGENTS.md                      # Guidance for AI coding agents
 └── README.md                      # This file
 ```
 
 ## 🎨 Styling Architecture
 
-The project uses **SCSS modules** for component isolation:
+The project uses **SCSS modules** for component isolation, built on a shared
+**design token** system:
 
-- **Component-specific styles**: Each component has its own `.module.scss` file
+- **Design tokens**: `src/styles/tokens.scss` defines every color, font size,
+  spacing, radius, border, shadow, and motion duration as a CSS custom
+  property. See [DESIGN.md](DESIGN.md) for the full reference.
+- **Component-specific styles**: Each component has its own `.module.scss`
+  file that consumes those tokens via `var(--token-name)` — no hardcoded
+  values.
 - **No CSS conflicts**: Automatic class name scoping
-- **Better organization**: Styles co-located with components
 - **Type safety**: Full TypeScript support for CSS classes
-
-### SCSS Features Used
-- **Variables**: Consistent color schemes and spacing
-- **Nesting**: Logical CSS structure
-- **Mixins**: Reusable style patterns
-- **Animations**: Smooth transitions and keyframes
 
 ## 🎭 Animation Features
 
-- **Pulse Animation**: Buttons pulse during gameplay
-- **Shake Animation**: Game result container shakes during animation
-- **Bounce Animation**: Choice icons bounce for visual feedback
-- **Hover Effects**: Smooth button interactions
+- **Pulse Animation**: Buttons pulse while the computer is "thinking"
+- **Spinner**: A spinning indicator shows while the computer's choice is hidden
+- **Hover/Active Effects**: Buttons lift on hover and visually "press in" on click
 - **Realistic Timing**: 1.5-second delay simulating real gameplay
+- **Reduced motion**: every animation is disabled under `prefers-reduced-motion: reduce`
 
 ## 🔧 Development Features
 
@@ -135,6 +138,12 @@ The project uses **SCSS modules** for component isolation:
 - Strict mode enabled
 - Path mapping for clean imports
 - Full type safety throughout the application
+
+## 🤖 Working on this repo with an AI agent
+
+See [AGENTS.md](AGENTS.md) for architecture notes, conventions (styling,
+translations, testing) and the commands to run before considering a change
+done.
 
 ## 🧪 Available Scripts
 
@@ -203,7 +212,6 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 🙏 Acknowledgments
 
 - **React Team** for the amazing framework
-- **FontAwesome** for the beautiful icons
 - **Parcel** for the fast bundler
 - **TypeScript** for type safety
 - **react-i18next** for internationalization

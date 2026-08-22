@@ -1,14 +1,21 @@
 {
   "game": {
     "title": "Juego de Piedra, Papel o Tijeras",
-    "welcome": "¡Bienvenido a tu juego de Piedra, Papel o Tijeras!",
+    "welcome": "Elige tu jugada y mira qué elige la computadora.",
     "result": {
-      "title": "Resultado del Juego",
-      "yourChoice": "Tu elección:",
-      "computerChoice": "Elección de la computadora:",
-      "win": "¡Ganaste! 🎉",
-      "lose": "¡Gana la computadora! 😔",
-      "draw": "¡Empate! 🤝"
+      "title": "Resultado de la Ronda",
+      "you": "Tú",
+      "computer": "Computadora",
+      "idle": "Elige tu jugada para comenzar",
+      "thinking": "La computadora está eligiendo…",
+      "win": "¡Ganaste!",
+      "lose": "¡Gana la computadora!",
+      "draw": "¡Es un empate!",
+      "explain": {
+        "rockScissors": "La piedra aplasta la tijera",
+        "paperRock": "El papel cubre la piedra",
+        "scissorsPaper": "La tijera corta el papel"
+      }
     },
     "buttons": {
       "rock": "Piedra",

@@ -21,18 +21,15 @@ describe('Game Component', () => {
     expect(screen.getByText('game.buttons.scissors')).toBeInTheDocument();
   });
 
-  it('should display initial game state with rock vs rock draw', () => {
+  it('should display the idle prompt before any choice is made', () => {
     render(<Game />);
     expect(screen.getByText('game.result.title')).toBeInTheDocument();
-    // Check for player choice rock (more specific)
-    expect(screen.getByText('game.result.yourChoice')).toBeInTheDocument();
-    expect(screen.getByText('game.result.computerChoice')).toBeInTheDocument();
-    expect(screen.getByText("It's a draw! 🤝")).toBeInTheDocument();
+    expect(screen.getByText('game.result.idle')).toBeInTheDocument();
   });
 
   it('should handle rock choice correctly', async () => {
     render(<Game />);
-    
+
     const rockButton = screen.getByText('game.buttons.rock');
     fireEvent.click(rockButton);
 
@@ -50,7 +47,7 @@ describe('Game Component', () => {
 
   it('should handle paper choice correctly', async () => {
     render(<Game />);
-    
+
     const paperButton = screen.getByText('game.buttons.paper');
     fireEvent.click(paperButton);
 
@@ -67,7 +64,7 @@ describe('Game Component', () => {
 
   it('should handle scissors choice correctly', async () => {
     render(<Game />);
-    
+
     const scissorsButton = screen.getByText('game.buttons.scissors');
     fireEvent.click(scissorsButton);
 
@@ -84,15 +81,15 @@ describe('Game Component', () => {
 
   it('should prevent multiple button clicks during animation', async () => {
     render(<Game />);
-    
+
     const rockButton = screen.getByText('game.buttons.rock');
     const paperButton = screen.getByText('game.buttons.paper');
-    
+
     fireEvent.click(rockButton);
-    
+
     // Try to click another button during animation
     fireEvent.click(paperButton);
-    
+
     // Both buttons should be disabled
     expect(rockButton).toBeDisabled();
     expect(paperButton).toBeDisabled();
@@ -100,7 +97,7 @@ describe('Game Component', () => {
 
   it('should update game result after choice', async () => {
     render(<Game />);
-    
+
     const rockButton = screen.getByText('game.buttons.rock');
     fireEvent.click(rockButton);
 
@@ -113,9 +110,8 @@ describe('Game Component', () => {
 
   it('should maintain game state consistency', async () => {
     render(<Game />);
-    
-    const initialResult = screen.getByText("It's a draw! 🤝");
-    expect(initialResult).toBeInTheDocument();
+
+    expect(screen.getByText('game.result.idle')).toBeInTheDocument();
 
     const rockButton = screen.getByText('game.buttons.rock');
     fireEvent.click(rockButton);

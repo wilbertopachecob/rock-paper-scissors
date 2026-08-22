@@ -14,27 +14,11 @@ vi.mock('react-i18next', () => ({
   }),
 }));
 
-vi.mock('@fortawesome/react-fontawesome', async () => {
-  const React = await import('react');
-  return {
-    FontAwesomeIcon: ({ icon }: { icon: string | { iconName: string } | [string, string] }) => {
-      let iconName = '';
-      if (typeof icon === 'object' && icon !== null && 'iconName' in icon) {
-        iconName = icon.iconName;
-      } else if (typeof icon === 'string') {
-        iconName = icon;
-      } else if (Array.isArray(icon)) {
-        iconName = icon[1] || '';
-      }
-      return React.createElement('span', { 'data-testid': 'icon' }, iconName);
-    },
-  };
-});
-
 vi.mock('@/styles/App.module.scss', () => ({
   default: {
     App: 'App',
     'App-header': 'App-header',
+    'top-bar': 'top-bar',
   },
 }));
 
@@ -42,6 +26,9 @@ vi.mock('@/styles/Game.module.scss', () => ({
   default: {
     game: 'game',
     'game-buttons': 'game-buttons',
+    rock: 'rock',
+    paper: 'paper',
+    scissors: 'scissors',
     animating: 'animating',
   },
 }));
@@ -49,14 +36,25 @@ vi.mock('@/styles/Game.module.scss', () => ({
 vi.mock('@/styles/GameResult.module.scss', () => ({
   default: {
     'game-result': 'game-result',
+    title: 'title',
     choices: 'choices',
     choice: 'choice',
-    'player-choice': 'player-choice',
-    'computer-choice': 'computer-choice',
+    'choice-rock': 'choice-rock',
+    'choice-paper': 'choice-paper',
+    'choice-scissors': 'choice-scissors',
+    'choice-label': 'choice-label',
+    'choice-name': 'choice-name',
+    placeholder: 'placeholder',
+    spinner: 'spinner',
+    vs: 'vs',
     result: 'result',
+    idle: 'idle',
+    thinking: 'thinking',
     win: 'win',
     lose: 'lose',
     draw: 'draw',
+    'result-text': 'result-text',
+    explanation: 'explanation',
     animating: 'animating',
   },
 }));
