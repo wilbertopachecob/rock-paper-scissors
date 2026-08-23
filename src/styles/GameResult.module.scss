@@ -24,6 +24,45 @@
   flex-wrap: wrap;
 }
 
+// Below this width the two choice boxes plus the VS badge no longer fit on
+// one line at their default size. Rather than stacking them (which pushes
+// "Computer" below the fold), shrink everything to keep You/VS/Computer
+// side by side — closer to how the result reads on desktop.
+@media (max-width: 480px) {
+  .choices {
+    flex-wrap: nowrap;
+    gap: var(--space-2);
+  }
+
+  .choice {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: none;
+    min-height: 112px;
+    padding: var(--space-3) var(--space-2);
+  }
+
+  .choice svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .choice-label,
+  .choice-name {
+    font-size: var(--font-size-2xs);
+  }
+
+  .placeholder {
+    font-size: var(--font-size-xl);
+  }
+
+  .vs {
+    width: 32px;
+    height: 32px;
+    font-size: var(--font-size-2xs);
+  }
+}
+
 .choice {
   flex: 1 1 var(--choice-box-flex-basis);
   max-width: var(--choice-box-max-width);
