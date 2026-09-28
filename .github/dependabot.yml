@@ -35,6 +35,10 @@ updates:
           - "react-dom"
           - "@types/react"
           - "@types/react-dom"
+      vitest:
+        patterns:
+          - "vitest"
+          - "@vitest/*"
     ignore:
       # Ignore major version updates for React (can be breaking)
       - dependency-name: "react"
