@@ -35,6 +35,13 @@ updates:
           - "react-dom"
           - "@types/react"
           - "@types/react-dom"
+      typescript-eslint:
+        patterns:
+          - "@typescript-eslint/*"
+      vitest:
+        patterns:
+          - "vitest"
+          - "@vitest/*"
     ignore:
       # Ignore major version updates for React (can be breaking)
       - dependency-name: "react"
