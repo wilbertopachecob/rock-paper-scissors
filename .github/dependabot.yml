@@ -35,6 +35,9 @@ updates:
           - "react-dom"
           - "@types/react"
           - "@types/react-dom"
+      typescript-eslint:
+        patterns:
+          - "@typescript-eslint/*"
       vitest:
         patterns:
           - "vitest"
